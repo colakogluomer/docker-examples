@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  client:
+    image: client-dev-i
+    build:
+      dockerfile: Dockerfile.dev
+    container_name: client-dev-c
+    ports:
+      - "3000:3000" # Proper syntax for array
+    environment:
+      - NODE_ENV=development
+      - VITE_PRIVATE_KEY=OMER
+      - PRIVATE_KEY=COLAK
+    volumes:
+      - ./client:/client # Proper syntax for array
+      - node_modules:/client/node_modules/ # Proper syntax for array
+volumes:
+  node_modules:
